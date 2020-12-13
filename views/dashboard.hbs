@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Dashboard</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <div class="d-flex justify-content-between">
+                <div id="airbnb-logo">
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100">
+                </div>
+                <div id="user-options">
+                    <div>
+                        <a href="/logout"><button id="logout" class="btn btn-primary">
+                        Log Out
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <!-- Navigation bar -->
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="nav justify-content-center">
+                    <li class="navbar-brand"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="/">Home</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="/room-listing">Room Listings</a></li>
+                    {{#if user.admin}}
+                    <li class="navbar-brand"><a class="nav-link" href="/create-room">Create a Room</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+            <h2 id="dashboard-header">{{#if user.admin}}ADMIN {{/if}}DASHBOARD</h2>
+            <h2 class="mb-4">Welcome {{user.first_name}} {{user.last_name}}!</h2>
+            <div class="card mb-4">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+                    <p>Notifications go here</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    Messages
+                </div>
+                <div class="card-body">
+                    <p>Messages go here</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    Other cool stuff
+                </div>
+                <div class="card-body">
+                    <p>Cool things go here</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="footer-wrapper">
+                <div class="footer-menu-items">
+                    <div>
+                        <div>Footer Menu Item 1</div>
+                        <div>Footer Menu Item 2</div>
+                        <div>Footer Menu Item 3</div>
+                    </div>
+                    <div>
+                        <div>Footer Menu Item 4</div>
+                        <div>Footer Menu Item 5</div>
+                        <div>Footer Menu Item 6</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100px">
+                    <h3>&copy; 2020 AirBnB</h3>
+                    <h4>Follow us on social media</h4>
+                    <img src="https://img.icons8.com/material/24/000000/facebook--v1.png" alt="Facebook Logo">
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <img src="https://img.icons8.com/material/24/000000/twitter--v1.png" alt="Twitter Logo">
+                    <a href="https://twitter.com/" target="_blank">Twitter</a>
+                    <img src="https://img.icons8.com/material/24/000000/instagram-new--v1.png" alt="Instagram Logo">
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                </div>
+                <div id="footer-subscribe">
+                    <h4>Subscribe to our newsletter!</h4>
+                    <form action="https://formspree.io/xvowlwrl" method="POST">
+                    <input
+                    class="form-control"
+                        type="email"
+                        name="email"
+                        id="subscribe-newsletter"
+                        autocomplete="email"
+                        placeholder="Enter your email here"
+                    />
+                    <input class="btn btn-light" type="submit" name="submit" value="Sign Up" />
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </body>
+    
+</html>

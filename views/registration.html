@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Room Listings</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <!-- page header -->
+        <header>
+            <div class="d-flex justify-content-between">
+                <div id="airbnb-logo">
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100">
+                </div>
+                <div id="user-options">
+                    <div>
+                        <button id="login" class="btn btn-primary">
+                            <i class="material-icons md-36">account_box</i>
+                        </button>
+                        Log In
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <!-- Navigation bar -->
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="nav justify-content-center">
+                    <li class="navbar-brand"><a class="nav-link" href="/">Home</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="/room-listing">Room Listings</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="/registration">Sign Up</a></li>
+                </ul>
+            </nav>
+
+            <!-- Login Form -->
+            <div id="modal">
+                <div id="close-modal" class="close">&times;</div>
+                <div id="login-form">
+                    <h2>Sign In</h2>
+                    <img class="avatar" src="images/avatar.jpg" alt="avatar">
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" placeholder="Enter Username" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Password" id="password" name="password" required>
+                        </div>
+                        <div id="login-btn">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="login" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <h2 class="page-title">Sign Up</h2>
+            <form id="registration-form" action="/profile" method="POST">
+
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required>
+
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" required pattern="^[A-Z][A-Za-z-]*$">
+                <small class="form-text text-muted">First letter must be capitalized.</small>
+
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" required pattern="^[A-Z][A-Za-z-]*$">
+                <small class="form-text text-muted">First letter must be capitalized.</small>
+                
+                <label for="password">Create Password</label>
+                <input type="password" class="form-control" name="new_password" id="new_password" placeholder="Create a Password" required minlength="6" maxlength="12" pattern="^[A-Za-z0-9]*$">
+                <small class="form-text text-muted">Password should be 6-12 characters long and only contain letters and numbers.</small>
+                
+                <label for="birthday">Birthday</label>
+                <small class="form-text text-muted">To sign up, you need to be at least 18. Other people who use Airbnb won't see your birthday.</small>
+                <input type="date" class="form-control" name="birthday" id="birthday" required>
+                <small class="form-text text-muted">We'll send you marketing promotions, special offers, inspiration, and policy updates via email.</small>
+                
+                <input id="submit-btn" class="btn btn-primary btn-lg btn-block" type="submit" name="signup" value="Sign Up">
+            </form>
+        </main>
+        <footer>
+            <div id="footer-wrapper">
+                <div class="footer-menu-items">
+                    <div>
+                        <div>Footer Menu Item 1</div>
+                        <div>Footer Menu Item 2</div>
+                        <div>Footer Menu Item 3</div>
+                    </div>
+                    <div>
+                        <div>Footer Menu Item 4</div>
+                        <div>Footer Menu Item 5</div>
+                        <div>Footer Menu Item 6</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100px">
+                    <h3>&copy; 2020 AirBnB</h3>
+                    <h4>Follow us on social media</h4>
+                    <img src="https://img.icons8.com/material/24/000000/facebook--v1.png" alt="Facebook Logo">
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <img src="https://img.icons8.com/material/24/000000/twitter--v1.png" alt="Twitter Logo">
+                    <a href="https://twitter.com/" target="_blank">Twitter</a>
+                    <img src="https://img.icons8.com/material/24/000000/instagram-new--v1.png" alt="Instagram Logo">
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                </div>
+                <div id="footer-subscribe">
+                    <h4>Subscribe to our newsletter!</h4>
+                    <form action="https://formspree.io/xvowlwrl" method="POST">
+                    <input
+                    class="form-control"
+                        type="email"
+                        name="email"
+                        id="subscribe-newsletter"
+                        autocomplete="email"
+                        placeholder="Enter your email here"
+                    />
+                    <input class="btn btn-light" type="submit" name="submit" value="Sign Up" />
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

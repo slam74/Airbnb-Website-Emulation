@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Home Page</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <!-- page header -->
+        <header>
+            <div class="d-flex justify-content-between">
+                <div id="airbnb-logo">
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100">
+                </div>
+                <div id="user-options">
+                    {{#if user}}
+                    <div>
+                        <a href="/logout"><button id="logout" class="btn btn-primary">
+                        Log Out
+                        </button></a>
+                    </div>
+                    {{else}}
+                    <button id="login" class="btn btn-primary">
+                        <i class="material-icons md-36">account_box</i>
+                    </button>
+                    Log In
+                    {{/if}}
+                </div>
+            </div>
+        </header>
+        <main>
+            <!-- Navigation bar -->
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="nav justify-content-center">
+                    {{#if user}}
+                    <li class="navbar-brand"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                    {{/if}}
+                    <li class="navbar-brand"><a class="nav-link" href="/">Home</a></li>
+                    <li class="navbar-brand"><a class="nav-link" href="/room-listing">Room Listings</a></li>
+                    {{#unless user}}
+                    <li class="navbar-brand"><a class="nav-link" href="/registration">Sign Up</a></li>
+                    {{/unless}}
+                    {{#if user.admin}}
+                    <li class="navbar-brand"><a class="nav-link" href="/create-room">Create a Room</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+
+            <!-- Login Form -->
+            <div id="modal">
+                <div id="close-modal" class="close">&times;</div>
+                <div id="login-form">
+                    <h2>Sign In</h2>
+                    <img class="avatar" src="images/avatar.jpg" alt="avatar">
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <label for="username">Email</label>
+                            <input type="text" class="form-control" placeholder="Enter Email" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" placeholder="Enter Password" id="password" name="password" required>
+                        </div>
+                        <div id="login-btn">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="login" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Booking search form -->
+            <h2 class="page-title">Book unique places to stay and things to do.</h2>
+            <div id="booking-search-form">
+                <form action="/search" method="POST">
+                    <div class="form-group">
+                        <label for="booking-search-form-where">Where</label>
+                        <select id="booking-search-form-where" class="form-control">
+                            <option value="toronto">Toronto</option>
+                            <option value="ottawa">Ottawa</option>
+                            <option value="vancouver">Vancouver</option>
+                            <option value="edmonton">Edmonton</option>
+                            <option value="winnipeg">Winnipeg</option>
+                            <option value="calgary">Calgary</option>
+                            <option value="montreal">Montreal</option>
+                        </select>
+                    </div>
+                    <div class="form-row d-flex justify-content-between">
+                        <div class="form-group">
+                            <label for="check-in-date">Check In Date</label>
+                            <input type="date" name="check-in-date" id="check-in-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out-date">Check Out Date</label>
+                            <input type="date" name="check-out-date" id="check-out-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-search-form-guests">Guests</label>
+                        <select id="booking-search-form-guests" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div id="booking-search-btn">
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Promotional Section -->
+            <div id="promotional-section" class="card text-center">
+                <h2 class="card-header">
+                    Special
+                </h2>
+                <h2 id="promotion" class="card-title">Promotion</h2>
+                <h4 class="card-text">Sign up to our newsletter to get 10% off your next booking!</h4>
+            </div>
+
+            <!-- Informational Section -->
+            <div id="informational-section" class="container">
+                <h2>What is AirBnB?</h2>
+                <div class="row">
+                    <div class="col">
+                        <img src="https://a0.muscache.com/pictures/c6326764-c929-4b47-bad7-0055a3f8e8a9.jpg" alt="Place" height="150px">
+                        <h3 class="card-title">A place to stay for every trip</h3>
+                        <p class="card-text">A warm welcome awaits you at every stay. Behind every stay is a real person who can provide you the details you need to check in and feel at home.</p>
+                    </div>
+                    <div class="col">
+                        <img src="https://a0.muscache.com/pictures/32a6eca7-933e-4eee-9db4-650a5df576e5.jpg" alt="Activity" height="150px">
+                        <h3 class="card-title">Unique experiences</h3>
+                        <p class="card-text">Airbnb is not your typical stay. Learn something new from an expert host.</p>
+                    </div>
+                </div>
+                <div class="video-wrapper">
+                    <video width="450" controls>
+                        <source src="media/We Accept _ Airbnb.mp4" type="video/mp4"> 
+                    </video>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="footer-wrapper">
+                <div class="footer-menu-items">
+                    <div>
+                        <div>Footer Menu Item 1</div>
+                        <div>Footer Menu Item 2</div>
+                        <div>Footer Menu Item 3</div>
+                    </div>
+                    <div>
+                        <div>Footer Menu Item 4</div>
+                        <div>Footer Menu Item 5</div>
+                        <div>Footer Menu Item 6</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/airbnb-logo.jpg" alt="AirBnB Logo" height="100px">
+                    <h3>&copy; 2020 AirBnB</h3>
+                    <h4>Follow us on social media</h4>
+                    <img src="https://img.icons8.com/material/24/000000/facebook--v1.png" alt="Facebook Logo">
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <img src="https://img.icons8.com/material/24/000000/twitter--v1.png" alt="Twitter Logo">
+                    <a href="https://twitter.com/" target="_blank">Twitter</a>
+                    <img src="https://img.icons8.com/material/24/000000/instagram-new--v1.png" alt="Instagram Logo">
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                </div>
+                <div id="footer-subscribe">
+                    <h4>Subscribe to our newsletter!</h4>
+                    <form action="https://formspree.io/xvowlwrl" method="POST">
+                    <input
+                    class="form-control"
+                        type="email"
+                        name="email"
+                        id="subscribe-newsletter"
+                        autocomplete="email"
+                        placeholder="Enter your email here"
+                    />
+                    <input class="btn btn-light" type="submit" name="submit" value="Sign Up" />
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
