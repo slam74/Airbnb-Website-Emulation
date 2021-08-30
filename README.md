@@ -1,5 +1,5 @@
 # WEB322_Asgn
-An emulation of the AirB&B website. Allows visitors to view rooms and users to book rooms. Created using HTML5, CSS3, JavaScript, Node.js, Express, Handlebars, and Bootstrap. User and room information is stored on a Postgre database. The web application is deployed on Heroku.
+An emulation of the Airbnb website. Allows visitors to view rooms and users to book rooms. Created using HTML5, CSS3, JavaScript, Node.js, Express, Handlebars, and Bootstrap. User and room information is stored on a Postgre database. The web application is deployed on Heroku.
 # Heroku URL: https://rocky-beyond-90282.herokuapp.com/
 
 # Overview
